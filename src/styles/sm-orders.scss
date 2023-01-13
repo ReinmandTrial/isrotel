@@ -65,12 +65,41 @@ body {
    box-shadow: 0px -1px 20px rgba(94, 112, 139, 0.25);
    border-radius: 6px;
    padding: 24px;
-   &._disabled {
-      color: #8c95ac;
+
+   &._reason {
       .sm-start-action {
          display: none;
       }
+      .sm-cancellation-reason-action {
+         display: block;
+      }
+   }
+   &._fee {
+      .sm-start-action {
+         display: none;
+      }
+      .sm-cancellation-reason-action {
+         display: none;
+      }
+      .sm-cancellation-fee-action {
+         display: block;
+      }
+   }
+   &._disabled {
+      color: #8c95ac;
+      .sm-failure-process {
+         display: none;
+      }
       .sm-disabled-action {
+         display: block;
+      }
+   }
+
+   &._load {
+      .sm-failure-process {
+         display: none;
+      }
+      .sm-loader-action {
          display: block;
       }
    }
@@ -411,6 +440,9 @@ body {
       border-radius: 8px;
    }
 }
+.sm-failure-process {
+   height: 100%;
+}
 //StartActions========================================================================================================================================================
 .sm-start-action {
    height: 100%;
@@ -429,6 +461,7 @@ body {
    gap: 5px;
    align-items: center;
    margin-bottom: 32px;
+   position: relative;
 }
 .sm-start-action-tooltip-text {
    margin: 0px 0px 0px 0px;
@@ -452,14 +485,54 @@ body {
 }
 //Tooltip========================================================================================================================================================
 .sm-start-action-tooltip-content {
-   display: none;
    background: #ffffff;
    border: 1px solid #dde9fc;
    border-radius: 8px;
+   padding: 32px 24px 24px;
+   position: absolute;
+   top: 100%;
+   left: -50px;
+   z-index: 1000;
+   width: 490px;
+   display: none;
 }
 .sm-start-action-tooltip-content-title {
+   font-weight: 400;
+   font-size: rem(18px);
+   line-height: 144%;
+   margin-bottom: 8px;
+   display: block;
 }
 .sm-start-action-tooltip-content-text {
+   font-weight: 400;
+   font-size: rem(16px);
+   line-height: 150%;
+   margin-bottom: 0;
+}
+//Tippy CONFIG========================================================================================================================================================
+.tippy-box {
+   background: #ffffff;
+   border: 1px solid #dde9fc;
+   border-radius: 8px;
+   color: #000000;
+   padding: 32px 24px;
+   box-shadow: 0 -1px 20px rgba(94, 112, 139, 0.25);
+   max-width: rem(490px) !important;
+   @media (max-width: 1200px) {
+      max-width: rem(315px) !important;
+   }
+}
+.tippy-content {
+   padding: 0;
+}
+.tippy-arrow {
+   color: #fff;
+   &::before {
+      color: #fff;
+   }
+}
+.tippy-box > .tippy-arrow:before {
+   transform: scale(2);
 }
 //Buttons========================================================================================================================================================
 .sm-start-action-buttons-block {
@@ -483,7 +556,7 @@ body {
    max-width: 135px;
    width: 100%;
    @media (max-width: 1200px) {
-      max-width: 300px;
+      max-width: rem(300px);
    }
    &:active {
       background-color: #eeeeee;
@@ -502,12 +575,310 @@ body {
    max-width: 185px;
    width: 100%;
    @media (max-width: 1200px) {
-      max-width: 300px;
+      max-width: rem(300px);
    }
    &:active {
       background: rgba(0, 44, 116, 0.9);
    }
 }
+//CancellationReasonActions========================================================================================================================================================
+.sm-cancellation-reason-action {
+   display: none;
+   padding: 24px 24px 24px 16px;
+   background: #f6faff;
+   height: 100%;
+}
+.sm-cancellation-reason-top-line {
+   margin-bottom: rem(16px);
+}
+.sm-cancellation-reason-question {
+   font-weight: 600;
+   font-size: rem(18px);
+   line-height: 144%;
+   color: #002d74;
+   margin: 0;
+}
+.sm-cancellation-reason-question-help {
+   font-weight: 400;
+   font-size: rem(14px);
+   line-height: 157%;
+   margin-bottom: 0;
+}
+.sm-cancellation-reason-form {
+}
+.sm-cancellation-reason-list {
+   width: 100%;
+   height: rem(150px);
+   padding-left: 8px;
+   margin-bottom: rem(16px);
+   .sm-wrapper[dir='ltr'] & {
+      padding-left: 0;
+      padding-right: 8px;
+   }
+}
+.sm-radio {
+   position: relative;
+   width: 100%;
+   cursor: pointer;
+   &:not(:last-child) {
+      margin-bottom: 6px;
+   }
+   &__input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      clip: rect(0 0 0 0);
+      visibility: hidden;
+   }
+
+   &__item {
+      display: flex;
+      align-items: center;
+      gap: rem(12px);
+      padding: 10px;
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      .sm-radio__input:checked + & {
+         border: 1px solid rgba(213, 225, 245, 0.8);
+      }
+   }
+
+   &__style {
+      flex: none;
+      border: 1px solid #002d74;
+      border-radius: 50%;
+      width: rem(16px);
+      height: rem(16px);
+      display: block;
+      position: relative;
+      &::after {
+         content: '';
+         width: rem(10px);
+         height: rem(10px);
+         position: absolute;
+         background: #002d74;
+         border-radius: 50%;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%) scale(0);
+         transition: all 0.3s ease 0s;
+      }
+      .sm-radio__input:checked + .sm-radio__item & {
+         &::after {
+            transform: translate(-50%, -50%) scale(1);
+            transition: all 0.3s ease 0s;
+         }
+      }
+   }
+
+   &__text {
+      font-weight: 400;
+      font-size: rem(14px);
+      line-height: 157%;
+      color: #000000;
+   }
+}
+.sm-cancellation-reason-button-block {
+   display: flex;
+   gap: 8px;
+   padding-left: 8px;
+   justify-content: center;
+   .sm-wrapper[dir='ltr'] & {
+      padding-left: 0;
+      padding-right: 8px;
+   }
+   @media (max-width: 400px) {
+      flex-direction: column;
+   }
+}
+.sm-cancellation-reason-back-btn {
+   font-weight: 700;
+   font-size: rem(18px);
+   line-height: 144%;
+   text-decoration-line: underline;
+   border: none;
+   color: #002d74;
+   background-color: transparent;
+   padding: 8px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+   max-width: rem(93px);
+   width: 100%;
+   word-break: break-word;
+   border: 1px solid transparent;
+   border-radius: 4px;
+   &:active {
+      border: 1px solid rgba(0, 45, 116, 0.3);
+   }
+   @media (max-width: 1200px) {
+      max-width: rem(226px);
+   }
+   @media (max-width: 600px) {
+      flex: 0 0 calc(50% - 4px);
+   }
+   @media (max-width: 400px) {
+      flex: auto;
+      max-width: none;
+   }
+   & img {
+      pointer-events: none;
+      width: rem(16px);
+      height: rem(12px);
+      .sm-wrapper[dir='ltr'] & {
+         transform: rotate(-180deg);
+      }
+      @media (min-width: 1200px) {
+         display: none;
+      }
+   }
+   & span {
+      pointer-events: none;
+   }
+}
+.sm-cancellation-reason-next-btn {
+   padding: 8px;
+   background: #002d74;
+   border-radius: 4px;
+   font-weight: 700;
+   font-size: rem(18px);
+   line-height: 144%;
+   color: #ffffff;
+   border: none;
+   max-width: rem(226px);
+   width: 100%;
+   word-break: break-word;
+   &:active {
+      background: rgba(0, 44, 116, 0.9);
+   }
+   @media (max-width: 600px) {
+      flex: 0 0 calc(50% - 4px);
+   }
+   @media (max-width: 400px) {
+      flex: auto;
+      max-width: none;
+   }
+}
+
+//SimpleBarConfig========================================================================================================================================================
+.simplebar-track.simplebar-vertical {
+   width: 4px;
+}
+.simplebar-scrollbar {
+   &::before {
+      background: #8c95ac;
+      opacity: 1;
+      left: 0px;
+      right: 0px;
+   }
+}
+
+//CancellationFeeActions========================================================================================================================================================
+.sm-cancellation-fee-action {
+   display: none;
+   padding: 24px 24px;
+   background: #f6faff;
+   height: 100%;
+}
+.sm-cancellation-fee-top-line {
+   margin-bottom: rem(16px);
+}
+.sm-cancellation-fee-back-btn {
+   padding: rem(8px) rem(0px) rem(8px) rem(8px);
+   display: flex;
+   gap: rem(8px);
+   background-color: transparent;
+   align-items: center;
+   border: none;
+   & img {
+      width: rem(16px);
+      height: rem(12px);
+      pointer-events: none;
+      .sm-wrapper[dir='ltr'] & {
+         transform: rotate(-180deg);
+      }
+   }
+   & span {
+      pointer-events: none;
+      font-weight: 700;
+      font-size: rem(16px);
+      line-height: 150%;
+      text-decoration-line: underline;
+      color: #002d74;
+   }
+}
+.sm-cancellation-fee-title {
+   font-weight: 600;
+   font-size: rem(18px);
+   line-height: 144%;
+   color: #002d74;
+   margin: 0px 0px 0px 0px;
+}
+.sm-cancellation-fee-rule {
+   font-weight: 400;
+   font-size: rem(16px);
+   line-height: 150%;
+   margin: 0px 0px 0px 0px;
+}
+.sm-cancellation-fee-form {
+}
+
+.sm-cancellation-fee-confirm-box {
+   background: #ffffff;
+   border: 1px solid rgba(213, 225, 245, 0.8);
+   box-shadow: 0px 5px 12px rgba(178, 194, 209, 0.25);
+   border-radius: 6px;
+   padding: 16px 12px;
+   margin-bottom: 16px;
+}
+.sm-cancellation-fee-sum {
+   font-weight: 400;
+   font-size: rem(14px);
+   line-height: 157%;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   margin-bottom: 26px;
+   flex-wrap: wrap;
+   & span {
+      font-weight: 600;
+   }
+}
+.sm-cancellation-fee-confirm-input-block {
+}
+.sm-cancellation-fee-confirm-label {
+   font-weight: 400;
+   font-size: rem(14px);
+   line-height: 157%;
+   margin-bottom: 8px;
+}
+.sm-cancellation-fee-confirm-input {
+   background: #eeeff3;
+   border-radius: 6px;
+   padding: rem(8px);
+   border: none;
+   width: 100%;
+   font-weight: 400;
+   font-size: rem(13px);
+   line-height: 154%;
+}
+.sm-cancellation-fee-confirm-input-error {
+   display: block;
+   font-weight: 400;
+   font-size: rem(12px);
+   line-height: 167%;
+   color: #d8123e;
+}
+.sm-cancellation-fee-pay-block {
+   background: #ffffff;
+   border: 1px solid rgba(213, 225, 245, 0.8);
+   box-shadow: 0px 5px 12px rgba(178, 194, 209, 0.25);
+   border-radius: 6px;
+   height: 440px;
+}
+
 //========================================================================================================================================================
 //========================================================================================================================================================
 //DisabledAction========================================================================================================================================================
@@ -531,7 +902,9 @@ body {
    align-items: center;
    gap: rem(24px);
    padding: 0px rem(24px);
-   margin-bottom: 90px;
+   @media (max-width: 1200px) {
+      margin-bottom: 90px;
+   }
 }
 .sm-disabled-action-text {
    font-weight: 600;
@@ -549,4 +922,50 @@ body {
    text-align: center;
    margin-bottom: 0;
    word-break: break-word;
+}
+//========================================================================================================================================================
+//========================================================================================================================================================
+//LoaderAction========================================================================================================================================================
+.sm-loader-action {
+   display: none;
+   padding: 24px;
+}
+.sm-loader-top-line {
+}
+.sm-loader-top-line-title {
+   font-weight: 600;
+   font-size: rem(18px);
+   line-height: 144%;
+   text-align: center;
+   color: #002d74;
+   margin-bottom: 16px;
+}
+.sm-loader-top-line-text {
+   font-weight: 400;
+   font-size: rem(14px);
+   line-height: 157%;
+   text-align: center;
+   margin: 0px 0px 0px 0px;
+}
+.sm-loader-spinner {
+   display: flex;
+   justify-content: center;
+   margin-top: rem(46px);
+   @media (max-width: 1200px) {
+      margin-bottom: 108px;
+   }
+   & img {
+      width: rem(38px);
+      height: rem(43px);
+      animation: spinner 2s infinite linear;
+   }
+}
+
+@keyframes spinner {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(-360deg);
+   }
 }

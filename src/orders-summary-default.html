@@ -8,13 +8,14 @@
 
       <link rel="stylesheet" href="styles/fonts.css" />
       <link rel="stylesheet" href="styles/bootstrap.css" />
-      <link rel="stylesheet" href="styles/tooltipster.bundle.min.css" />
       <link rel="stylesheet" href="styles/main.css" />
+      <link rel="stylesheet" href="styles/simplebar.css" />
 
       <link rel="stylesheet" href="styles/style.min.css" />
 
-      <script src="./scripts/jquery.min.js" defer></script>
-      <script src="./scripts/tooltipster.bundle.min.js" defer></script>
+      <script src="./scripts/simplebar.min.js" defer></script>
+      <script src="./scripts/popper.core.js" defer></script>
+      <script src="./scripts/tippy.core.js" defer></script>
       <script src="./scripts/app.min.js" defer></script>
    </head>
 
@@ -72,27 +73,295 @@
                            </div>
                         </div>
                         <div class="sm-dynamic-content">
-                           <div class="sm-start-action">
-                              <div class="sm-start-action-text">
-                                 במידה והינך מעוניין לשנות את ההזמנה או לבטל חלק מהחדרים, יש ליצור קשר עם ישרוטל ישיר בטל,
-                                 <a href="tel:+08-6387797">08-6387797</a>
+                           <div class="sm-failure-process">
+                              <div class="sm-start-action">
+                                 <div class="sm-start-action-text">
+                                    במידה והינך מעוניין לשנות את ההזמנה או לבטל חלק מהחדרים, יש ליצור קשר עם ישרוטל ישיר בטל,
+                                    <a href="tel:+08-6387797">08-6387797</a>
+                                 </div>
+                                 <div class="sm-start-action-tooltip-block">
+                                    <p class="sm-start-action-tooltip-text">בנקודת זמן זו, דמי ביטול החופשה הם: 320 ש״ח</p>
+                                    <button type="button" class="sm-start-action-tooltip-button">
+                                       <img src="./images/orders/info.svg" alt="" role="presentation" />
+                                    </button>
+                                    <div class="sm-start-action-tooltip-content">
+                                       <span class="sm-start-action-tooltip-content-title">שימו לב</span>
+                                       <p class="sm-start-action-tooltip-content-text">
+                                          בהתאם לחוק הגנת הצרכן, יחויב המזמין בדמי ביטול בסך של 100 (מאה) ש״ח או בסך של 5% (חמישה אחוזים)
+                                          משווים ההזמנה, לפי הנמוך מביניהם.
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="sm-start-action-buttons-block">
+                                    <button type="button" class="sm-start-action-button-cancel">אני רוצה לבטל</button>
+                                    <button type="button" class="sm-start-action-button-approve">לצפייה באישור הזמנה</button>
+                                 </div>
                               </div>
-                              <div class="sm-start-action-tooltip-block">
-                                 <p class="sm-start-action-tooltip-text">בנקודת זמן זו, דמי ביטול החופשה הם: 320 ש״ח</p>
-                                 <button type="button" class="sm-start-action-tooltip-button">
-                                    <img src="./images/orders/info.svg" alt="" role="presentation" />
-                                 </button>
-                                 <div class="sm-start-action-tooltip-content">
-                                    <span class="sm-start-action-tooltip-content-title">שימו לב</span>
-                                    <p class="sm-start-action-tooltip-content-text">
+                              <div class="sm-cancellation-reason-action">
+                                 <div class="sm-cancellation-reason-top-line">
+                                    <h3 class="sm-cancellation-reason-question">מהי סיבת הביטול?</h3>
+                                    <p class="sm-cancellation-reason-question-help">בחרו מבין האפשרויות</p>
+                                 </div>
+                                 <form class="sm-cancellation-reason-form">
+                                    <div data-simplebar data-simplebar-direction="rtl" class="sm-cancellation-reason-list">
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input checked class="sm-radio__input" type="radio" name="NAME" value="1" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="2" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="3" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="4" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="5" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="6" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                    </div>
+                                    <div class="sm-cancellation-reason-button-block">
+                                       <button type="button" class="sm-cancellation-reason-back-btn">
+                                          <img src="./images/orders/arrow.svg" role="presentation" alt="" />
+                                          <span>סגירה</span>
+                                       </button>
+                                       <button type="button" class="sm-cancellation-reason-next-btn">המשך</button>
+                                    </div>
+                                 </form>
+                              </div>
+                              <div class="sm-cancellation-fee-action">
+                                 <div class="sm-cancellation-fee-top-line">
+                                    <button type="button" class="sm-cancellation-fee-back-btn">
+                                       <img src="./images/orders/arrow.svg" alt="" role="presentation" />
+                                       <span>חזרה</span>
+                                    </button>
+                                    <h3 class="sm-cancellation-fee-title">חיוב דמי ביטול</h3>
+                                    <p class="sm-cancellation-fee-rule">
                                        בהתאם לחוק הגנת הצרכן, יחויב המזמין בדמי ביטול בסך של 100 (מאה) ש״ח או בסך של 5% (חמישה אחוזים)
                                        משווים ההזמנה, לפי הנמוך מביניהם.
                                     </p>
                                  </div>
+                                 <form class="sm-cancellation-fee-form">
+                                    <div class="sm-cancellation-fee-confirm-box">
+                                       <p class="sm-cancellation-fee-sum">סכום דמי ביטול לחיוב:<span>100 ש״ח</span></p>
+                                       <div class="sm-cancellation-fee-confirm-input-block">
+                                          <p class="sm-cancellation-fee-confirm-label">הזינו כתובת דוא״ל לקבלת אישור ביטול ההזמנה</p>
+                                          <input placeholder="*כתובת דוא״ל" class="sm-cancellation-fee-confirm-input" type="email" />
+                                          <span class="sm-cancellation-fee-confirm-input-error">* הערת שגיאה </span>
+                                       </div>
+                                    </div>
+                                    <div class="sm-cancellation-fee-pay-block"></div>
+                                 </form>
                               </div>
-                              <div class="sm-start-action-buttons-block">
-                                 <button type="button" class="sm-start-action-button-cancel">אני רוצה לבטל</button>
-                                 <button type="button" class="sm-start-action-button-approve">לצפייה באישור הזמנה</button>
+                           </div>
+                           <div class="sm-loader-action">
+                              <div class="sm-loader-top-line">
+                                 <p class="sm-loader-top-line-title">בתהליך ביטול...</p>
+                                 <p class="sm-loader-top-line-text">אנא המתינו, פעולה זו יכולה לקחת מספר שניות</p>
+                              </div>
+                              <div class="sm-loader-spinner">
+                                 <img src="./images/orders/loading.svg" alt="" role="presentation" />
+                              </div>
+                           </div>
+                           <div class="sm-disabled-action">
+                              <p class="sm-disabled-action-top-line">הזמנה זו בוטלה</p>
+                              <div class="sm-disabled-action-main-line">
+                                 <p class="sm-disabled-action-text">מקווים לראותך בקרוב באחד ממלונות ישרוטל.</p>
+                                 <p class="sm-disabled-action-email">
+                                    הודעה לאישור ביטול הזמנה ותשלום דמי ביטול נשלחה למייל המוזן במערכת: S*******i@gmail.com
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sm-card _load">
+                  <div class="sm-right">
+                     <div class="sm-order-number order-number-mob">מספר הזמנה: 00958629499</div>
+                     <div class="sm-card-img-block">
+                        <img src="./images/orders/photo-1.png" alt="Hotel room photo" class="sm-card-img" />
+                     </div>
+                  </div>
+                  <div class="sm-left">
+                     <div class="sm-order-number order-number-pc">מספר הזמנה: 00958629499</div>
+                     <div class="sm-card-content">
+                        <div class="sm-static-content">
+                           <div class="sm-static-common-info">
+                              <a href="#" class="sm-hotel-name">מלון ישרוטך המלך שלמה</a>
+                              <ul class="sm-meta-list">
+                                 <li>02.10.2022-30.09.2022</li>
+                                 <li>2 לילות</li>
+                              </ul>
+                           </div>
+                           <div class="sm-static-inner">
+                              <div class="sm-static-main-info">
+                                 <div>
+                                    <ul class="sm-meta-list sm-main-info-list">
+                                       <li>חדר 1</li>
+                                       <li>מחיר באתר</li>
+                                    </ul>
+                                    <p class="sm-info-about-guests">זוג + 2 ילדים, סוויטת רויאל החדשה וחדר בלויסטה חדש, בסיס א.בוקר</p>
+                                 </div>
+                                 <div>
+                                    <span class="sm-main-info-price-label">מחיר:</span>
+                                    <span class="sm-main-info-price"><span>3,500</span><span class="sm-currency">₪</span></span>
+                                 </div>
+                              </div>
+                              <div class="sm-static-total-info">
+                                 <div>
+                                    <span class="sm-total-info-label">סה״כ ההזמנה שלך:</span>
+                                 </div>
+                                 <div>
+                                    <div class="sm-total-info-price"><span>3,500</span><span class="sm-currency">₪</span></div>
+                                    <span class="sm-total-info-price-type">מחיר באתר</span>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="sm-dynamic-content">
+                           <div class="sm-failure-process">
+                              <div class="sm-start-action">
+                                 <div class="sm-start-action-text">
+                                    במידה והינך מעוניין לשנות את ההזמנה או לבטל חלק מהחדרים, יש ליצור קשר עם ישרוטל ישיר בטל,
+                                    <a href="tel:+08-6387797">08-6387797</a>
+                                 </div>
+                                 <div class="sm-start-action-tooltip-block">
+                                    <p class="sm-start-action-tooltip-text">בנקודת זמן זו, דמי ביטול החופשה הם: 320 ש״ח</p>
+                                    <button type="button" class="sm-start-action-tooltip-button">
+                                       <img src="./images/orders/info.svg" alt="" role="presentation" />
+                                    </button>
+                                    <div class="sm-start-action-tooltip-content">
+                                       <span class="sm-start-action-tooltip-content-title">שימו לב</span>
+                                       <p class="sm-start-action-tooltip-content-text">
+                                          בהתאם לחוק הגנת הצרכן, יחויב המזמין בדמי ביטול בסך של 100 (מאה) ש״ח או בסך של 5% (חמישה אחוזים)
+                                          משווים ההזמנה, לפי הנמוך מביניהם.
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="sm-start-action-buttons-block">
+                                    <button type="button" class="sm-start-action-button-cancel">אני רוצה לבטל</button>
+                                    <button type="button" class="sm-start-action-button-approve">לצפייה באישור הזמנה</button>
+                                 </div>
+                              </div>
+                              <div class="sm-cancellation-reason-action">
+                                 <div class="sm-cancellation-reason-top-line">
+                                    <h3 class="sm-cancellation-reason-question">מהי סיבת הביטול?</h3>
+                                    <p class="sm-cancellation-reason-question-help">בחרו מבין האפשרויות</p>
+                                 </div>
+                                 <form class="sm-cancellation-reason-form">
+                                    <div data-simplebar data-simplebar-direction="rtl" class="sm-cancellation-reason-list">
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input checked class="sm-radio__input" type="radio" name="NAME" value="1" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="2" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="3" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="4" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="5" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="6" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                    </div>
+                                    <div class="sm-cancellation-reason-button-block">
+                                       <button type="button" class="sm-cancellation-reason-back-btn">
+                                          <img src="./images/orders/arrow.svg" role="presentation" alt="" />
+                                          <span>סגירה</span>
+                                       </button>
+                                       <button type="button" class="sm-cancellation-reason-next-btn">המשך</button>
+                                    </div>
+                                 </form>
+                              </div>
+                              <div class="sm-cancellation-fee-action">
+                                 <div class="sm-cancellation-fee-top-line">
+                                    <button type="button" class="sm-cancellation-fee-back-btn">
+                                       <img src="./images/orders/arrow.svg" alt="" role="presentation" />
+                                       <span>חזרה</span>
+                                    </button>
+                                    <h3 class="sm-cancellation-fee-title">חיוב דמי ביטול</h3>
+                                    <p class="sm-cancellation-fee-rule">
+                                       בהתאם לחוק הגנת הצרכן, יחויב המזמין בדמי ביטול בסך של 100 (מאה) ש״ח או בסך של 5% (חמישה אחוזים)
+                                       משווים ההזמנה, לפי הנמוך מביניהם.
+                                    </p>
+                                 </div>
+                                 <form class="sm-cancellation-fee-form">
+                                    <div class="sm-cancellation-fee-confirm-box">
+                                       <p class="sm-cancellation-fee-sum">סכום דמי ביטול לחיוב:<span>100 ש״ח</span></p>
+                                       <div class="sm-cancellation-fee-confirm-input-block">
+                                          <p class="sm-cancellation-fee-confirm-label">הזינו כתובת דוא״ל לקבלת אישור ביטול ההזמנה</p>
+                                          <input placeholder="*כתובת דוא״ל" class="sm-cancellation-fee-confirm-input" type="email" />
+                                          <span class="sm-cancellation-fee-confirm-input-error">* הערת שגיאה </span>
+                                       </div>
+                                    </div>
+                                    <div class="sm-cancellation-fee-pay-block"></div>
+                                 </form>
+                              </div>
+                           </div>
+                           <div class="sm-loader-action">
+                              <div class="sm-loader-top-line">
+                                 <p class="sm-loader-top-line-title">בתהליך ביטול...</p>
+                                 <p class="sm-loader-top-line-text">אנא המתינו, פעולה זו יכולה לקחת מספר שניות</p>
+                              </div>
+                              <div class="sm-loader-spinner">
+                                 <img src="./images/orders/loading.svg" alt="" role="presentation" />
                               </div>
                            </div>
                            <div class="sm-disabled-action">
@@ -152,17 +421,17 @@
                            </div>
                         </div>
                         <div class="sm-dynamic-content">
-                           <div class="sm-start-action">
-                              <div class="sm-start-action-text">
-                                 במידה והינך מעוניין לשנות את ההזמנה או לבטל חלק מהחדרים, יש ליצור קשר עם ישרוטל ישיר בטל,
-                                 <a href="tel:+08-6387797">08-6387797</a>
-                              </div>
-                              <div class="sm-start-action-tooltip-block">
-                                 <p class="sm-start-action-tooltip-text">בנקודת זמן זו, דמי ביטול החופשה הם: 320 ש״ח</p>
-                                 <button type="button" class="sm-start-action-tooltip-button">
-                                    <img src="./images/orders/info.svg" alt="" role="presentation" />
-                                 </button>
-                                 <div class="sm-start-action-tooltip-c">
+                           <div class="sm-failure-process">
+                              <div class="sm-start-action">
+                                 <div class="sm-start-action-text">
+                                    במידה והינך מעוניין לשנות את ההזמנה או לבטל חלק מהחדרים, יש ליצור קשר עם ישרוטל ישיר בטל,
+                                    <a href="tel:+08-6387797">08-6387797</a>
+                                 </div>
+                                 <div class="sm-start-action-tooltip-block">
+                                    <p class="sm-start-action-tooltip-text">בנקודת זמן זו, דמי ביטול החופשה הם: 320 ש״ח</p>
+                                    <button type="button" class="sm-start-action-tooltip-button">
+                                       <img src="./images/orders/info.svg" alt="" role="presentation" />
+                                    </button>
                                     <div class="sm-start-action-tooltip-content">
                                        <span class="sm-start-action-tooltip-content-title">שימו לב</span>
                                        <p class="sm-start-action-tooltip-content-text">
@@ -171,10 +440,102 @@
                                        </p>
                                     </div>
                                  </div>
+                                 <div class="sm-start-action-buttons-block">
+                                    <button type="button" class="sm-start-action-button-cancel">אני רוצה לבטל</button>
+                                    <button type="button" class="sm-start-action-button-approve">לצפייה באישור הזמנה</button>
+                                 </div>
                               </div>
-                              <div class="sm-start-action-buttons-block">
-                                 <button type="button" class="sm-start-action-button-cancel">אני רוצה לבטל</button>
-                                 <button type="button" class="sm-start-action-button-approve">לצפייה באישור הזמנה</button>
+                              <div class="sm-cancellation-reason-action">
+                                 <div class="sm-cancellation-reason-top-line">
+                                    <h3 class="sm-cancellation-reason-question">מהי סיבת הביטול?</h3>
+                                    <p class="sm-cancellation-reason-question-help">בחרו מבין האפשרויות</p>
+                                 </div>
+                                 <form class="sm-cancellation-reason-form">
+                                    <div data-simplebar data-simplebar-direction="rtl" class="sm-cancellation-reason-list">
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input checked class="sm-radio__input" type="radio" name="NAME" value="1" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="2" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="3" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="4" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="5" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                       <label class="sm-cancellation-reason-item sm-radio">
+                                          <input class="sm-radio__input" type="radio" name="NAME" value="6" />
+                                          <span class="sm-radio__item">
+                                             <span class="sm-radio__style"></span>
+                                             <span class="sm-radio__text">אין סיבה מיוחדת</span>
+                                          </span>
+                                       </label>
+                                    </div>
+                                    <div class="sm-cancellation-reason-button-block">
+                                       <button type="button" class="sm-cancellation-reason-back-btn">
+                                          <img src="./images/orders/arrow.svg" role="presentation" alt="" />
+                                          <span>סגירה</span>
+                                       </button>
+                                       <button type="button" class="sm-cancellation-reason-next-btn">המשך</button>
+                                    </div>
+                                 </form>
+                              </div>
+                              <div class="sm-cancellation-fee-action">
+                                 <div class="sm-cancellation-fee-top-line">
+                                    <button type="button" class="sm-cancellation-fee-back-btn">
+                                       <img src="./images/orders/arrow.svg" alt="" role="presentation" />
+                                       <span>חזרה</span>
+                                    </button>
+                                    <h3 class="sm-cancellation-fee-title">חיוב דמי ביטול</h3>
+                                    <p class="sm-cancellation-fee-rule">
+                                       בהתאם לחוק הגנת הצרכן, יחויב המזמין בדמי ביטול בסך של 100 (מאה) ש״ח או בסך של 5% (חמישה אחוזים)
+                                       משווים ההזמנה, לפי הנמוך מביניהם.
+                                    </p>
+                                 </div>
+                                 <form class="sm-cancellation-fee-form">
+                                    <div class="sm-cancellation-fee-confirm-box">
+                                       <p class="sm-cancellation-fee-sum">סכום דמי ביטול לחיוב:<span>100 ש״ח</span></p>
+                                       <div class="sm-cancellation-fee-confirm-input-block">
+                                          <p class="sm-cancellation-fee-confirm-label">הזינו כתובת דוא״ל לקבלת אישור ביטול ההזמנה</p>
+                                          <input placeholder="*כתובת דוא״ל" class="sm-cancellation-fee-confirm-input" type="email" />
+                                          <span class="sm-cancellation-fee-confirm-input-error">* הערת שגיאה </span>
+                                       </div>
+                                    </div>
+                                    <div class="sm-cancellation-fee-pay-block"></div>
+                                 </form>
+                              </div>
+                           </div>
+                           <div class="sm-loader-action">
+                              <div class="sm-loader-top-line">
+                                 <p class="sm-loader-top-line-title">בתהליך ביטול...</p>
+                                 <p class="sm-loader-top-line-text">אנא המתינו, פעולה זו יכולה לקחת מספר שניות</p>
+                              </div>
+                              <div class="sm-loader-spinner">
+                                 <img src="./images/orders/loading.svg" alt="" role="presentation" />
                               </div>
                            </div>
                            <div class="sm-disabled-action">
@@ -190,10 +551,10 @@
                      </div>
                   </div>
                </div>
+         
             </section>
          </div>
       </div>
-
       <footer class="site-footer"></footer>
    </body>
 </html>
