@@ -9,6 +9,12 @@
             trigger: 'click',
             placement: 'bottom',
             arrow: true,
+            offset: () => {
+               if (window.matchMedia('(min-width: 1200px)').matches && document.dir === 'rtl') return [196, 17]
+               if (window.matchMedia('(max-width: 1200px)').matches && document.dir === 'rtl') return [130, 17]
+               if (window.matchMedia('(min-width: 1200px)').matches && document.dir === 'ltr') return [-196, 17]
+               if (window.matchMedia('(max-width: 1200px)').matches && document.dir === 'ltr') return [-130, 17]
+            },
          })
       })
    }

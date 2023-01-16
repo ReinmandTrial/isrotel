@@ -481,6 +481,7 @@ body {
 
 .tippy-content {
   padding: 0;
+  font-family: "SimplerPro";
 }
 
 .tippy-arrow {
@@ -519,10 +520,17 @@ body {
   color: #002d74;
   max-width: 135px;
   width: 100%;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
-.sm-start-action-button-cancel:active {
-  background-color: #eeeeee;
+.sm-start-action-button-cancel:hover {
+  -webkit-box-shadow: 0 3px 4px 0 rgba(0, 75, 193, 0.14);
+          box-shadow: 0 3px 4px 0 rgba(0, 75, 193, 0.14);
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .sm-start-action-button-approve {
@@ -537,10 +545,17 @@ body {
   border-radius: 4px;
   max-width: 185px;
   width: 100%;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
-.sm-start-action-button-approve:active {
-  background: rgba(0, 44, 116, 0.9);
+.sm-start-action-button-approve:hover {
+  -webkit-box-shadow: 0 4px 6px 0 rgba(1, 62, 158, 0.2);
+          box-shadow: 0 4px 6px 0 rgba(1, 62, 158, 0.2);
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .sm-cancellation-reason-action {
@@ -736,10 +751,17 @@ body {
   max-width: 14.125rem;
   width: 100%;
   word-break: break-word;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
-.sm-cancellation-reason-next-btn:active {
-  background: rgba(0, 44, 116, 0.9);
+.sm-cancellation-reason-next-btn:hover {
+  -webkit-box-shadow: 0 4px 6px 0 rgba(1, 62, 158, 0.2);
+          box-shadow: 0 4px 6px 0 rgba(1, 62, 158, 0.2);
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .simplebar-track.simplebar-vertical {
