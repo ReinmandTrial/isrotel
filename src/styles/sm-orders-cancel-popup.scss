@@ -18,6 +18,14 @@
    align-items: start;
    padding: 270px 20px 60px 20px;
    overflow-y: auto;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.3s ease 0s;
+   ._open-popup & {
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.3s ease 0s;
+   }
    @media (max-width: 1200px) {
       padding: 110px 20px 60px 20px;
    }
@@ -27,6 +35,12 @@
    border-radius: 0px 0px 6px 6px;
    max-width: rem(760px);
    width: 100%;
+   transform: scale(0);
+   transition: all 0.3s ease 0s;
+   ._open-popup & {
+      transform: scale(1);
+      transition: all 0.3s ease 0s;
+   }
 }
 .sm-popup-top-line {
    padding: rem(12px) rem(70px);
