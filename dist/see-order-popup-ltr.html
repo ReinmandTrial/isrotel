@@ -519,7 +519,7 @@
                         <form class="sm-see-order-data-send">
                            <div class="sm-data-send-input-block">
                               <div class="sm-data-send-input-row">
-                                 <input required class="sm-data-send-input" id="smDateInput" type="text" />
+                                 <input autocomplete="off" required class="sm-data-send-input" id="smDateInput" type="text" />
                                  <label class="sm-data-send-label" for="smDateInput"><sup>*</sup>תאריך צ׳ק אין</label>
                                  <img class="sm-data-send-icon" src="./images/orders/calendar.svg" alt="" role="presentation" />
                               </div>
@@ -561,6 +561,12 @@
                            </div>
                            <button type="submit" class="sm-enter-code-submit-btn sm-see-blue-btn">המשך</button>
                         </form>
+                     </div>
+                  </div>
+                  <div id="smSeeDatepicker" class="sm-see-datepicker">
+                     <div class="sm-see-datepicker-action-btn">
+                        <button type="button" class="sm-see-datepicker-cancel-btn">חזרה</button>
+                        <button type="button" class="sm-see-datepicker-done-btn sm-see-blue-btn">אישור</button>
                      </div>
                   </div>
                </div>
