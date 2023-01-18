@@ -56,7 +56,7 @@
          $('.sm-data-send-input').val(datePickSm[0].value)
          datePickSm.hide()
       })
-      $('.sm-data-send-input').on('click', () => {
+      $('#smDateInput').on('click', () => {
          datePickSm.show()
       })
    }
@@ -80,7 +80,7 @@
          $('.sm-data-send-input').val(datePickSm[0].value)
          datePickSm.hide()
       })
-      $('.sm-data-send-input').on('click', () => {
+      $('#smDateInput').on('click', () => {
          datePickSm.show()
       })
    }
