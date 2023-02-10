@@ -25,63 +25,63 @@
          })
       })
 })()
-
 !(function smDatePickerInit() {
-   if (document.dir === 'rtl') {
-      const datePickSm = $('#smSeeDatepicker').datepicker({
-         closeText: 'סגור',
-         prevText: 'הקודם',
-         nextText: 'הבא',
-         currentText: 'היום',
-         monthNames: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'],
-         monthNamesShort: ['ינו', 'פבר', 'מרץ', 'אפר', 'מאי', 'יוני', 'יולי', 'אוג', 'ספט', 'אוק', 'נוב', 'דצמ'],
-         dayNames: ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'],
-         dayNamesShort: ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש'],
-         dayNamesMin: ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש'],
-         weekHeader: 'Wk',
-         dateFormat: 'dd/mm/yy',
-         firstDay: 0,
-         isRTL: true,
-         showMonthAfterYear: false,
-         yearSuffix: '',
-         // onSelect: (data) => {
-         //    $('.sm-data-send-input').val(data)
-         // },
-      })
-      datePickSm.hide()
-      $('.sm-see-datepicker-cancel-btn').on('click', () => {
+   if (document.getElementById('smSeeDatepicker')) {
+      if (document.dir === 'rtl') {
+         const datePickSm = $('#smSeeDatepicker').datepicker({
+            closeText: 'סגור',
+            prevText: 'הקודם',
+            nextText: 'הבא',
+            currentText: 'היום',
+            monthNames: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'],
+            monthNamesShort: ['ינו', 'פבר', 'מרץ', 'אפר', 'מאי', 'יוני', 'יולי', 'אוג', 'ספט', 'אוק', 'נוב', 'דצמ'],
+            dayNames: ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'],
+            dayNamesShort: ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש'],
+            dayNamesMin: ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש'],
+            weekHeader: 'Wk',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 0,
+            isRTL: true,
+            showMonthAfterYear: false,
+            yearSuffix: '',
+            // onSelect: (data) => {
+            //    $('.sm-data-send-input').val(data)
+            // },
+         })
          datePickSm.hide()
-      })
-      $('.sm-see-datepicker-done-btn').on('click', () => {
-         $('.sm-data-send-input').val(datePickSm[0].value)
+         $('.sm-see-datepicker-cancel-btn').on('click', () => {
+            datePickSm.hide()
+         })
+         $('.sm-see-datepicker-done-btn').on('click', () => {
+            $('.sm-data-send-input').val(datePickSm[0].value)
+            datePickSm.hide()
+         })
+         $('#smDateInput').on('click', () => {
+            datePickSm.show()
+         })
+      } else {
+         const datePickSm = $('#smSeeDatepicker').datepicker({
+            weekHeader: 'Wk',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: '',
+            // onSelect: (data) => {
+            //    $('.sm-data-send-input').val(data)
+            // },
+         })
          datePickSm.hide()
-      })
-      $('#smDateInput').on('click', () => {
-         datePickSm.show()
-      })
-   }
-   if (document.dir === 'ltr') {
-      const datePickSm = $('#smSeeDatepicker').datepicker({
-         weekHeader: 'Wk',
-         dateFormat: 'dd/mm/yy',
-         firstDay: 1,
-         isRTL: false,
-         showMonthAfterYear: false,
-         yearSuffix: '',
-         // onSelect: (data) => {
-         //    $('.sm-data-send-input').val(data)
-         // },
-      })
-      datePickSm.hide()
-      $('.sm-see-datepicker-cancel-btn').on('click', () => {
-         datePickSm.hide()
-      })
-      $('.sm-see-datepicker-done-btn').on('click', () => {
-         $('.sm-data-send-input').val(datePickSm[0].value)
-         datePickSm.hide()
-      })
-      $('#smDateInput').on('click', () => {
-         datePickSm.show()
-      })
+         $('.sm-see-datepicker-cancel-btn').on('click', () => {
+            datePickSm.hide()
+         })
+         $('.sm-see-datepicker-done-btn').on('click', () => {
+            $('.sm-data-send-input').val(datePickSm[0].value)
+            datePickSm.hide()
+         })
+         $('#smDateInput').on('click', () => {
+            datePickSm.show()
+         })
+      }
    }
 })()
